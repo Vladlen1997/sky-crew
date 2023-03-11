@@ -1,4 +1,7 @@
 .header {
     grid-area: h;
     background-color: whitesmoke;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
