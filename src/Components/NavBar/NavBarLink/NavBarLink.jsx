@@ -4,7 +4,7 @@ import classes from './NavBarLink.module.css';
 
 
 const NavBarLink = (props) => {
-    let path = props.id + props.link;
+    let path = '/' + props.link;
     return <div className={classes.nav}>
         <NavLink to={path}>{props.link}</NavLink>
     </div>
