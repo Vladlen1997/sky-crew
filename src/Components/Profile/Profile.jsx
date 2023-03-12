@@ -1,11 +1,12 @@
 import React from 'react';
 import classes from './Profile.module.css';
+import Posts from "./Posts/Posts";
 
 
 const Profile = () => {
     return (
         <div className={classes.profile}>
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, itaque.
+            <Posts />
         </div>
     )
 }

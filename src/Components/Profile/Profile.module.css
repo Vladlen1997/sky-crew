@@ -1,0 +1,12 @@
+.posts {
+    margin: 20px;
+}
+
+.posts img {
+    border-radius: 45px;
+}
+
+.post {
+    display: flex;
+    justify-content: space-between;
+}
