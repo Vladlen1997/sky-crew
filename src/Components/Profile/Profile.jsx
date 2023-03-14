@@ -6,7 +6,7 @@ import Posts from "./Posts/Posts";
 const Profile = (props) => {
     return (
         <div className={classes.profile}>
-            <Posts likesCount={props.likesCount} />
+            <Posts likesCount={props.likesCount} addNewPost={props.addNewPost} />
         </div>
     )
 }

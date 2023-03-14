@@ -7,9 +7,28 @@ const Posts = (props) => {
 
 
     let likesCountEl = props.likesCount.map(count => <Post likesCount={count.likesCount} id={count.id}
-                                                     message={count.message}/>)
+                                                           message={count.message}/>)
+
+    let newPostElement = React.createRef();
+
+    const addPost = (props) => {
+        let textRef = newPostElement.current.value;
+        props.addNewPost(textRef);
+    }
+
     return <div className={classes.posts}>
-        {likesCountEl}
+        <h3>My Posts</h3>
+
+        <div>
+            {likesCountEl}
+        </div>
+
+        <div>
+            <div><textarea ref={newPostElement} placeholder='write the text...'/></div>
+            <div>
+                <button onClick={addPost}>Add post</button>
+            </div>
+        </div>
     </div>
 }
 
