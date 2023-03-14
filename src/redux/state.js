@@ -28,7 +28,9 @@ let state = {
             {id: 2, likesCount: 12, message: 'What is your name?'},
             {id: 3, likesCount: 20, message: 'Where are you from?'},
             {id: 4, likesCount: 6, message: 'Tail is a part of plane'}
-        ]
+        ],
+
+        newPostEl: ''
     },
 
     navBarPage: {
@@ -41,6 +43,12 @@ let state = {
         ]
     }
 
+}
+
+
+export const addNewPost = (postMessage) => {
+    let newPostMessage = {id: 5, likesCount: 78, message: postMessage};
+    state.profilePage.likesCount.push(newPostMessage);
 }
 
 
