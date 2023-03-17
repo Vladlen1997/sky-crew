@@ -7,15 +7,17 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 
 
 const App = (props) => {
+
+
     return (
         <div className="app">
-            <Header headerPage={props.headerPage}/>
-            <NavBar nameLink={props.nameLink}/>
+            <Header headerPage={props.state.headerPage}/>
+            <NavBar nameLink={props.state.navBarPage}/>
             <div className='profile'>
                 <Routes>
                     <Route path='/Profile'
-                           element={<Profile post={props.post} newPostText = {props.newPostText} addNewPost={props.addNewPost} updateNewPostText={props.updateNewPostText}/>} />
-                    <Route path='/Messages' element={<Dialogs dialogsPage={props.dialogsPage}/>}/>
+                           element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch}/>} />
+                    <Route path='/Messages' element={<Dialogs dialogsPage={props.state.dialogsPage}/>}/>
                 </Routes>
             </div>
         </div>
