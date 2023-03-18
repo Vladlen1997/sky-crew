@@ -1,3 +1,8 @@
+import profileReducer from "./profile-reducer";
+import dialogsReducer from "./dialogs-reducer";
+import navBarReducer from "./navBar-reducer";
+import headerReducer from "./header-reducer";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
@@ -68,6 +73,11 @@ let store = {
     },
 
     dispatch(action) {
+
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+        this._state.navBarPage = navBarReducer(this._state.navBarPage, action);
+        this._state.headerPage = headerReducer(this._state.headerPage, action);
 
         if (action.type === ADD_POST) {
             let newPost = {id: 5, likesCount: 8, message: this._state.profilePage.newPostText};
