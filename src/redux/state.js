@@ -78,24 +78,7 @@ let store = {
         this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
         this._state.navBarPage = navBarReducer(this._state.navBarPage, action);
         this._state.headerPage = headerReducer(this._state.headerPage, action);
-
-        if (action.type === ADD_POST) {
-            let newPost = {id: 5, likesCount: 8, message: this._state.profilePage.newPostText};
-            this._state.profilePage.post.push(newPost);
-            this._state.profilePage.newPostText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilePage.newPostText = action.text;
-            this._callSubscriber(this._state);
-        } else if (action.type === SEND_MESSAGE) {
-            let body = {id: 5, message: this._state.dialogsPage.newMessageText};
-            this._state.dialogsPage.messages.push(body);
-            this._state.dialogsPage.newMessageText = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-            this._state.dialogsPage.newMessageText = action.body;
-            this._callSubscriber(this._state);
-        }
+        this._callSubscriber(this._state);
     }
 
 }
