@@ -8,7 +8,6 @@ import Dialogs from "./Components/Dialogs/Dialogs";
 
 const App = (props) => {
 
-
     return (
         <div className="app">
             <Header headerPage={props.state.headerPage}/>
@@ -17,7 +16,7 @@ const App = (props) => {
                 <Routes>
                     <Route path='/Profile'
                            element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch}/>} />
-                    <Route path='/Messages' element={<Dialogs dialogsPage={props.state.dialogsPage}/>}/>
+                    <Route path='/Messages' element={<Dialogs dialogsPage={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
                 </Routes>
             </div>
         </div>
