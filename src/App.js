@@ -3,7 +3,7 @@ import {Route, Routes} from "react-router-dom";
 import Header from "./Components/Header/Header";
 import NavBar from "./Components/NavBar/NavBar";
 import Profile from "./Components/Profile/Profile";
-import Dialogs from "./Components/Dialogs/Dialogs";
+import DialogsContainer from "./Components/Dialogs/DialogsContainer/DialogsContainer";
 
 
 const App = (props) => {
@@ -16,7 +16,7 @@ const App = (props) => {
                 <Routes>
                     <Route path='/Profile'
                            element={<Profile profilePage={props.state.profilePage} dispatch={props.dispatch}/>} />
-                    <Route path='/Messages' element={<Dialogs dialogsPage={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
+                    <Route path='/Messages' element={<DialogsContainer store = {props.store} dispatch={props.dispatch}/>}/>
                 </Routes>
             </div>
         </div>
