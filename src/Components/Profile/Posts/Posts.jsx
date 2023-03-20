@@ -6,8 +6,8 @@ import Post from "./Post/Post";
 const Posts = (props) => {
 
 
-    let likesCountEl = props.profilePage.post.map(count => <Post likesCount={count.likesCount} id={count.id}
-                                                           message={count.message}/>)
+    let likesCountEl = props.profilePage.map(count => <Post likesCount={count.likesCount} id={count.id}
+                                                            message={count.message}/>)
 
 
     let getRef = React.createRef();
@@ -31,7 +31,8 @@ const Posts = (props) => {
         </div>
 
         <div>
-            <div><textarea onChange={onPostChange} ref={getRef} value={props.profilePage.newPostText} placeholder='write the text...'/></div>
+            <div><textarea onChange={onPostChange} ref={getRef} value={props.profilePage.newPostText}
+                           placeholder='write the text...'/></div>
             <div>
                 <button onClick={addNewPost}>Add post</button>
             </div>
