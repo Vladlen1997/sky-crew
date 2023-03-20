@@ -6,17 +6,17 @@ import Profile from "./Components/Profile/Profile";
 import DialogsContainer from "./Components/Dialogs/DialogsContainer/DialogsContainer";
 
 
-const App = (props) => {
+const App = () => {
 
     return (
         <div className="app">
-            <Header headerPage={props.state.headerPage}/>
-            <NavBar nameLink={props.state.navBarPage}/>
+            <Header />
+            <NavBar />
             <div className='profile'>
                 <Routes>
                     <Route path='/Profile'
-                           element={<Profile store={props.store} dispatch={props.dispatch}/>} />
-                    <Route path='/Messages' element={<DialogsContainer store = {props.store} dispatch={props.dispatch}/>}/>
+                           element={<Profile />} />
+                    <Route path='/Messages' element={<DialogsContainer />}/>
                 </Routes>
             </div>
         </div>
