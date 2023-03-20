@@ -3,8 +3,8 @@ import classes from './Header.module.css';
 import HeaderLink from "./HeaderLink/HeaderLink";
 
 const Header = (props) => {
-
-    let headerLinkEl = props.headerPage.headerLink.map(mode => <HeaderLink id={mode.id} object={mode.object}/>);
+    
+    let headerLinkEl = props.headerLink.map(mode => <HeaderLink id={mode.id} object={mode.object}/>);
     return (
         <div className={classes.header}>
             {headerLinkEl}
