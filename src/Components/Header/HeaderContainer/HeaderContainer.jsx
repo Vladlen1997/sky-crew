@@ -1,19 +1,15 @@
 import React from 'react';
-import StoreContext from "../../../StoreContext";
 import Header from "../Header";
+import {connect} from "react-redux";
 
-const HeaderContainer = () => {
+let mapStateToProps = (state) => {
 
-    return (
-        <StoreContext.Consumer>
-            {
-                (store) => {
-                    let state = store.getState().headerPage.headerLink;
-                    return <Header headerLink={state}/>
-                }
-            }
-        </StoreContext.Consumer>
-    )
+    return {
+        headerLink: state.headerPage.headerLink
+    }
 }
+
+
+const HeaderContainer = connect(mapStateToProps)(Header);
 
 export default HeaderContainer;
