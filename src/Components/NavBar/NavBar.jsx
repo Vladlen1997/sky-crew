@@ -5,7 +5,7 @@ import NavBarLink from "./NavBarLink/NavBarLink";
 
 const NavBar = (props) => {
 
-    let nameLinkEl = props.nameLink.map(link => <NavBarLink id={link.id} link={link.link}/>);
+    let nameLinkEl = props.nameLink.map(link => <NavBarLink key={link.id} id={link.id} link={link.link}/>);
     return (
         <div className={classes.nav}>
             {nameLinkEl}
