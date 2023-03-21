@@ -6,7 +6,7 @@ import Post from "./Post/Post";
 const Posts = (props) => {
 
 
-    let likesCountEl = props.profilePage.map(count => <Post likesCount={count.likesCount} id={count.id}
+    let likesCountEl = props.profilePage.post.map(count => <Post likesCount={count.likesCount} key={count.id} id={count.id}
                                                             message={count.message}/>)
 
 
