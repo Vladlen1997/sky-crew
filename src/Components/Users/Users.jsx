@@ -1,40 +1,54 @@
 import React from 'react';
 import classes from './Users.module.css';
-
+import axios from "axios";
 
 const Users = (props) => {
+if(props.users.length === 0) {
 
-    return (
-        <div>
-            {
-                props.users.map(users =>
-                    <div key={users.id}>
-                        <span>
-                            <div>
-                                <img src={users.photoUrl} alt="Photo" className={classes.userPhoto}/>
-                            </div>
-                            <div>
-                                {users.followed
-                                    ? <button onClick={() => {props.UNFOLLOW(users.id) } }>Unfollow</button>
-                                    : <button onClick={() => {props.FOLLOW(users.id)}}>Follow</button> }
-                            </div>
-                        </span>
-                        <span>
-                            <span>
-                                <div>{users.fullName}</div>
-                                <div>{users.status}</div>
-                            </span>
+    axios.get("https://637b689d10a6f23f7fa7ea2b.mockapi.io/Items").then(response => {
+        props.setUsers(response.data)
+    })
 
-                            <span>
-                                <div>{users.location.country}</div>
-                                <div>{users.location.city}</div>
-                            </span>
-                        </span>
-                    </div>)
-            }
-        </div>
-    )
+
 }
 
+    return (
+
+        <div>
+            {
+                props.users.map(u => <div key={u.id}>
+
+                        <span>
+                            <div className={classes.photo}>
+                                <img src={u.photoUrl} alt="face"/>
+                            </div>
+
+                            <div className="subscribe">
+
+                                {
+                                    u.followed
+                                        ? <button onClick={() => {props.unfollow(u.id)}}>unfollow</button>
+                                        : <button onClick={() => {props.follow(u.id)}}>follow</button>
+                                }
+                            </div>
+
+                            </span>
+                        <span>
+                            <span>
+                                <div>{u.fullName}</div><div><div>{u.status}</div></div>
+                            </span>
+                        </span>
+
+                            <span className="cityBlock">
+                                <div className="country">{u.country}</div>
+                                <div className="city">{u.city}</div>
+                            </span>
+                    </div>
+                ) }
+
+        </div>
+    )
+
+}
 
 export default Users;
