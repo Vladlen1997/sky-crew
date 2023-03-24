@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Users.module.css';
 import axios from "axios";
+import user from '../../assets/images/user.png';
 
 const Users = (props) => {
 if(props.users.length === 0) {
@@ -20,7 +21,7 @@ if(props.users.length === 0) {
 
                         <span>
                             <div className={classes.photo}>
-                                <img src={u.photoUrl} alt="face"/>
+                                <img src={u.photoUrl != null ? u.photoUrl : user} alt="face"/>
                             </div>
 
                             <div className="subscribe">
