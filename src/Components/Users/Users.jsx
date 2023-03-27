@@ -4,18 +4,26 @@ import axios from "axios";
 import user from '../../assets/images/user.png';
 
 const Users = (props) => {
-if(props.users.length === 0) {
 
-    axios.get("https://637b689d10a6f23f7fa7ea2b.mockapi.io/Items").then(response => {
-        props.setUsers(response.data)
-    })
+    let getUsers = () => {
+        if(props.users.length === 0) {
+
+            axios.get("https://637b689d10a6f23f7fa7ea2b.mockapi.io/Items").then(response => {
+                props.setUsers(response.data)
+            })
 
 
-}
+        }
+    }
+
+
 
     return (
 
+
+
         <div>
+            <button onClick={getUsers}>Get users</button>
             {
                 props.users.map(u => <div key={u.id}>
 
