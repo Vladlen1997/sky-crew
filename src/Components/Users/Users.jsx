@@ -3,29 +3,26 @@ import classes from './Users.module.css';
 import axios from "axios";
 import user from '../../assets/images/user.png';
 
-const Users = (props) => {
+class Users extends React.Component {
+    constructor(props) {
+        super(props);
 
-    let getUsers = () => {
-        if(props.users.length === 0) {
-
-            axios.get("https://637b689d10a6f23f7fa7ea2b.mockapi.io/Items").then(response => {
-                props.setUsers(response.data)
-            })
+        axios.get("https://637b689d10a6f23f7fa7ea2b.mockapi.io/Items").then(response => {
+            this.props.setUsers(response.data)
+        })
 
 
-        }
     }
 
 
+    render() {
 
-    return (
+        return (
 
 
-
-        <div>
-            <button onClick={getUsers}>Get users</button>
-            {
-                props.users.map(u => <div key={u.id}>
+            <div>
+                {
+                    this.props.users.map(u => <div key={u.id}>
 
                         <span>
                             <div className={classes.photo}>
@@ -36,13 +33,17 @@ const Users = (props) => {
 
                                 {
                                     u.followed
-                                        ? <button onClick={() => {props.unfollow(u.id)}}>unfollow</button>
-                                        : <button onClick={() => {props.follow(u.id)}}>follow</button>
+                                        ? <button onClick={() => {
+                                            this.props.unfollow(u.id)
+                                        }}>unfollow</button>
+                                        : <button onClick={() => {
+                                            this.props.follow(u.id)
+                                        }}>follow</button>
                                 }
                             </div>
 
                             </span>
-                        <span>
+                            <span>
                             <span>
                                 <div>{u.fullName}</div><div><div>{u.status}</div></div>
                             </span>
@@ -52,12 +53,14 @@ const Users = (props) => {
                                 <div className="country">{u.country}</div>
                                 <div className="city">{u.city}</div>
                             </span>
-                    </div>
-                ) }
+                        </div>
+                    )}
 
-        </div>
-    )
+            </div>
+        )
 
+    }
 }
+
 
 export default Users;
