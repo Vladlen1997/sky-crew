@@ -4,16 +4,12 @@ import axios from "axios";
 import user from '../../assets/images/user.png';
 
 class Users extends React.Component {
-    constructor(props) {
-        super(props);
 
+    componentDidMount() {
         axios.get("https://637b689d10a6f23f7fa7ea2b.mockapi.io/Items").then(response => {
             this.props.setUsers(response.data)
         })
-
-
     }
-
 
     render() {
 
