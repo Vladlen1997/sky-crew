@@ -13,10 +13,19 @@ class Users extends React.Component {
 
     render() {
 
+        let pagesCount = this.props.totalCount / this.props.pageSize
+        let pages = [];
+
         return (
 
 
             <div>
+                <div>
+                    <span>1</span>
+                    <span className={classes.selectedPage}>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                </div>
                 {
                     this.props.users.map(u => <div key={u.id}>
 
