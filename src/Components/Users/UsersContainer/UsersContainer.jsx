@@ -10,7 +10,7 @@ import {
 import React from "react";
 import axios from "axios";
 import Users from "../Users";
-import preloader from "./../../../assets/images/Bars-1s-200px.svg";
+import Preloader from "../../Common/Preloader";
 
 
 class UsersContainer extends React.Component {
@@ -29,14 +29,14 @@ class UsersContainer extends React.Component {
         this.props.setCurrentPage(pageNumber);
         this.props.toggleIsFetch(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`).then(response => {
-            this.props.setUsers(response.data.items)
+            this.props.setUsers(response.data.items);
             this.props.toggleIsFetch(false);
         })
     }
 
     render() {
         return <>
-            {this.props.isFetch ? <img src={preloader}/> : null}
+            {this.props.isFetch ? <Preloader/> : null}
             <Users totalCount={this.props.totalCount} pageSize={this.props.pageSize}
                    currentPage={this.props.currentPage}
                    onPageChanged={this.onPageChanged} users={this.props.users} follow={this.props.follow}
