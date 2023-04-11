@@ -6,6 +6,10 @@ import Profile from "./Profile";
 
 class ProfileContainer extends React.Component {
 
+    componentDidMount() {
+
+    }
+
     render() {
         return <div className={classes.profile}>
             <Profile {...this.props}/>
