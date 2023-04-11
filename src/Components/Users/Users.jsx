@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './Users.module.css';
 import user from '../../assets/images/user.png';
+import {NavLink} from "react-router-dom";
 
 
 const Users = (props) => {
@@ -23,44 +24,39 @@ const Users = (props) => {
                 })}
 
             </div>
-            {
-                props.users.map(u => <div key={u.id}>
+            {props.users.map(u => <div key={u.id}>
 
                         <span>
+                            <NavLink to={'/Profile/' + u.id}>
                             <div className={classes.photo}>
                                 <img src={u.photos.small != null ? u.photos.small : user} alt="face"/>
                             </div>
+                            </NavLink>
 
 
                             <div className="subscribe">
 
-                                {
-                                    u.followed
-                                        ? <button onClick={() => {
-                                            props.unfollow(u.id)
-                                        }}>unfollow</button>
-                                        : <button onClick={() => {
-                                           props.follow(u.id)
-                                        }}>follow</button>
-                                }
+                                {u.followed ? <button onClick={() => {
+                                    props.unfollow(u.id)
+                                }}>unfollow</button> : <button onClick={() => {
+                                    props.follow(u.id)
+                                }}>follow</button>}
                             </div>
 
                             </span>
-                        <span>
+                <span>
                             <span>
                                 <div>{u.name}</div><div><div>{u.status}</div></div>
                             </span>
                         </span>
 
-                        <span className="cityBlock">
+                <span className="cityBlock">
                                 <div className="country">{'u.location.country'}</div>
                                 <div className="city">{'u.location.city'}</div>
                             </span>
-                    </div>
-                )}
+            </div>)}
 
-        </div>
-    )
+        </div>)
 
 }
 
