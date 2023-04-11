@@ -4,7 +4,8 @@ import {NavLink} from "react-router-dom";
 const DialogItems = (props) => {
     return (
         <div>
-          <NavLink to={'/' + props.dialog}>{props.dialog}</NavLink>
+          <NavLink to={'/Messages/'  + props.id}>{props.dialog}</NavLink>
+
         </div>
     )
 }
